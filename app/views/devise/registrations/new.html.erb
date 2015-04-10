@@ -1,29 +1,36 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="field row">
+        <%= f.label :email, :class => 'col-lg-3' %>
+        <%= f.email_field :email, autofocus: false, :class => 'input col-lg-9' %>
+      </div>
+
+      <div class="field row">
+        <%= f.label :password, :class => 'col-lg-3'%>
+        
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+
+        <%= f.password_field :password, autocomplete: "off", :class => 'input col-lg-9'%>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, :class => 'col-lg-3' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'input col-lg-9'%>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit "Sign up", :class => 'submit btn col-lg-6 col-lg-offset-3' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>

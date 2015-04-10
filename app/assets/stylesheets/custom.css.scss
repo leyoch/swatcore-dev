@@ -1,11 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Molengo);
+@import url(http://fonts.googleapis.com/css?family=Lekton:400,700);
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 
 /* universal */
+
+*{
+ 
+}
 
 body {
   padding-top: 60px;
@@ -26,22 +32,27 @@ textarea {
   }
 }
 
+.jumbotron{
+  background: none;
+}
+
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+* {
   line-height: 1;
+  font-family: Lekton, helvetica;
 }
 
 h1 {
+  font-family: Molengo, helvetica;
   font-size: 3em;
-  letter-spacing: -2px;
   margin-bottom: 30px;
+  letter-spacing: -1px;
   text-align: center;
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
@@ -49,22 +60,76 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1.7em;
 }
 
+input[placeholder] {
+  &:focus{
+    color: white;
+  }
+   color: white;
+}
 
+/*buttons and inputs*/
+.btn{
+  display: inline-block;
+  background: black;
+  font-size: 18px;
+  color: white !important;
+  border: none;
+  padding: 16px;
+  border-radius: 0;
+  &:hover{
+    background: $gray;
+  }
+}
+
+.input{
+  transition: background 0.02s 0.02s; 
+  background: $gray-lighter;
+  font-size: 20px;
+  border:none;
+  padding: 18px;
+  &:focus{
+    box-shadow: none;
+    background: $gray;
+    color: white;
+  }
+}
+
+.submit{
+  margin-top: 20px;
+}
+
+label{
+  color: $gray;
+  line-height: 49px;
+}
+
+.form-control{
+  background:$gray;
+  border: none;
+  border-radius: 0;
+  color: white !important;
+  padding: 18px;
+  transition: background 0.02s 0.02s; 
+  &:focus{
+    background: #dddddd;
+    box-shadow:none;
+    color: $gray !important;
+  }
+}
 /* header */
 
 #logo {
+  font-family: Molengo, helvetica;
   float: left;
+  line-height: 50px;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  text-transform: lowercase;
   &:hover {
     color: white;
     text-decoration: none;
